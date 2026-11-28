@@ -46,14 +46,13 @@ $hasValidationError = ! empty($errors);
                     name="judul"
                     value="<?= esc(old('judul')) ?>"
                     placeholder="Contoh: Lampu ruang kelas berkedip dan mati total"
-                    class="<?= isset($errors['judul']) ? 'is-invalid' : '' ?>"
                 >
                 <div class="em"><?= esc($errors['judul'] ?? 'Judul laporan wajib diisi.') ?></div>
             </div>
 
             <div class="g<?= isset($errors['fasilitas_id']) ? ' err' : '' ?>">
                 <label for="fasilitas_id">Fasilitas</label>
-                <select id="fasilitas_id" name="fasilitas_id" class="select<?= isset($errors['fasilitas_id']) ? ' is-invalid' : '' ?>">
+                <select id="fasilitas_id" name="fasilitas_id" class="select">
                     <option value="">-- Pilih Fasilitas --</option>
                     <?php foreach ($fasilitasList ?? [] as $fasilitas): ?>
                         <option value="<?= esc((string) $fasilitas['id']) ?>" <?= (string) old('fasilitas_id') === (string) $fasilitas['id'] ? 'selected' : '' ?>>
@@ -66,7 +65,7 @@ $hasValidationError = ! empty($errors);
 
             <div class="g<?= isset($errors['kategori_id']) ? ' err' : '' ?>">
                 <label for="kategori_id">Kategori</label>
-                <select id="kategori_id" name="kategori_id" class="select<?= isset($errors['kategori_id']) ? ' is-invalid' : '' ?>">
+                <select id="kategori_id" name="kategori_id" class="select">
                     <option value="">-- Pilih Kategori --</option>
                     <?php foreach ($kategoriList ?? [] as $kategori): ?>
                         <option value="<?= esc((string) $kategori['id']) ?>" <?= (string) old('kategori_id') === (string) $kategori['id'] ? 'selected' : '' ?>>
@@ -85,7 +84,6 @@ $hasValidationError = ! empty($errors);
                     name="lokasi"
                     value="<?= esc(old('lokasi')) ?>"
                     placeholder="Contoh: Gedung A, Lantai 2, Ruang A203"
-                    class="<?= isset($errors['lokasi']) ? 'is-invalid' : '' ?>"
                 >
                 <div class="em"><?= esc($errors['lokasi'] ?? 'Lokasi kerusakan wajib diisi.') ?></div>
             </div>
@@ -96,7 +94,6 @@ $hasValidationError = ! empty($errors);
                     id="deskripsi"
                     name="deskripsi"
                     placeholder="Jelaskan kondisi kerusakan secara rinci..."
-                    class="<?= isset($errors['deskripsi']) ? 'is-invalid' : '' ?>"
                 ><?= esc(old('deskripsi')) ?></textarea>
                 <div class="em"><?= esc($errors['deskripsi'] ?? 'Deskripsi kerusakan wajib diisi.') ?></div>
             </div>
